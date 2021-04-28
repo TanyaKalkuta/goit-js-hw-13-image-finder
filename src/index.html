@@ -12,13 +12,27 @@
 <body>
   <form class="search-form" id="search-form">
     <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
-  <button type="submit" class="button upload-btn">Upload images</button>
-  
+  <!-- <button type="submit" class="button upload-btn">Upload images</button> -->
+  <button type="submit"
+   class="button upload-btn button">
+  <span class="spinner-border spinner-border-sm search-button-spinner is-hidden" role="status" aria-hidden="true"></span>
+      <span class="submit-button-text">Upload images</span>
+  </button>
   </form>
 
   <div class="gallery-section"></div>
 
-  <button type="submit" class="button load-more-btn ">Load more</button>
+  <!-- <button type="submit" class="button load-more-btn ">Load more</button> -->
+  <button
+   type="submit"
+    class="button load-more-btn ">
+    <span class="spinner-border spinner-border-sm load-button-spinner is-hidden"
+     role="status"
+     aria-hidden="true">
+    </span>
+    <span class="load-button-text">Load more</span>
+  </button>
+
 </body>
 
 </html>

@@ -5,8 +5,16 @@ export default class UploadImageService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
+         this.refs = this.getRefs();
     }
-    
+     getRefs() {
+        const refs = {
+            submitBtnText: document.querySelector('.submit-button-text'),
+            searchBtnSpinner: document.querySelector('.search-button-spinner'),
+
+        }
+        return refs;
+    }
 
     async fetchArticles() {
        
@@ -18,7 +26,7 @@ export default class UploadImageService {
         const response = await images.json();
         this.incrementPage();
         
-            return response;
+        return response;
             
         } catch  {
             alert('Error');
@@ -32,6 +40,17 @@ export default class UploadImageService {
 
     resetPage() {
        this.page = 1;
+    }
+
+    
+    showSpinner() {
+        this.refs.submitBtnText.textContent = 'Loading...';
+        this.refs.searchBtnSpinner.classList.remove('is-hidden');
+    }
+
+    hideSpinner() {
+        this.refs.submitBtnText.textContent = 'Upload images';
+        this.refs.searchBtnSpinner.classList.add('is-hidden');
     }
 
     get query() {
