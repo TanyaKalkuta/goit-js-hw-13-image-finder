@@ -32,7 +32,7 @@ function onSearch(e) {
         loadMoreButton.show();
         clearImageContainer();
         uploadImages.resetPage();
-        
+
         onLoadMore();
     }
       
@@ -44,6 +44,7 @@ function onLoadMore() {
         appendImagesMarkup(hits);
         loadMoreButton.enable();
         uploadImages.hideSpinner();
+        scrollPage();
     });
     
     // window.scrollTo(0, 1000);
@@ -55,4 +56,16 @@ function appendImagesMarkup (hits) {
 
 function clearImageContainer() {
     refs.imagesSection.innerHTML = '';
+}
+
+function scrollPage() {
+//получаем высоту страницы
+const scrollValue = document.documentElement.scrollHeight;
+//реализуем асинхронный scrollTo, чтобы метод корректно работал
+setTimeout(() => {
+window.scrollTo({
+top: scrollValue,
+behavior: 'smooth',
+});
+}, 100);
 }
